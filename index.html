@@ -77,7 +77,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -220,10 +220,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>date: 2016-05-27 21:25 </p>
+        <p>date: 2016-05-27 21:25:07 </p>
 <p>程序员日常加班写代码，加班调bug，加班发版本。<br>刚刚发版本的时候就遇到了七牛的迷之ITMS-90362 bug，强制要求使用ios 8.0，不然appstore 就会报错。</p>
 <hr>
-<p><img src="http://img.blog.csdn.net/20160527210854906" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20160527210854906" alt="上传报错图片"></p>
 <p>bug背景，项目需要用到七牛框架上传视频，且只能用pods 安装。。。我们项目最低版本支持到7.0,所有工作完成以后上传app到AppStore的时候就会报错。<br> 为了快速发版，赶紧联系七牛的大牛来解决问题，最终提供一下方案：</p>
 <h3 id="1-修改项目中用pods安装库的支持版本，与项目支持版本号保持一致。"><a href="#1-修改项目中用pods安装库的支持版本，与项目支持版本号保持一致。" class="headerlink" title="1. 修改项目中用pods安装库的支持版本，与项目支持版本号保持一致。"></a>1. 修改项目中用pods安装库的支持版本，与项目支持版本号保持一致。</h3><p><img src="http://img.blog.csdn.net/20160527211653551" alt="这里写图片描述"><br>修改完成之后重新编译，打包上传，发现然并卵。。。</p>
 <h3 id="2-修改app支持版本号"><a href="#2-修改app支持版本号" class="headerlink" title="2. 修改app支持版本号"></a>2. 修改app支持版本号</h3><p><img src="http://img.blog.csdn.net/20160527211931395" alt="这里写图片描述"></p>
