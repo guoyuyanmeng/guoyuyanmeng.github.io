@@ -194,6 +194,69 @@
 
       <div class="body-wrap">
   
+    <article id="post-Xcode编译Erroe ----Undefined symbols for architecture" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/17/Xcode编译Erroe ----Undefined symbols for architecture/" class="article-date">
+  	<time datetime="2016-08-17T01:40:08.000Z" itemprop="datePublished">2016-08-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/17/Xcode编译Erroe ----Undefined symbols for architecture/">Xcode编译Erroe ----Undefined symbols for architecture</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>date: 2016-06-03 16:53:00</p>
+<hr>
+<h2 id="Xcode-build的时候报错"><a href="#Xcode-build的时候报错" class="headerlink" title="Xcode build的时候报错"></a>Xcode build的时候报错</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> Undefined symbols for architecture arm64:</span><br><span class="line"> ...</span><br><span class="line"> &quot;_OBJC_CLASS_$_AFHTTPRequestOperationManager&quot;, referenced from:</span><br><span class="line">_OBJC_CLASS_$_AppDelegate in AppDelegate.o</span><br><span class="line">&quot;_OBJC_CLASS_$_AFHTTPResponseSerializer&quot;, referenced from:</span><br><span class="line">objc-class-ref in AppDelegate.o</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<hr>
+<p>在cocoapods管理第三方的时候经常遇见，很烦人，解决办法有一下几种：</p>
+<h3 id="1、检查库文件是否导入"><a href="#1、检查库文件是否导入" class="headerlink" title="1、检查库文件是否导入"></a>1、检查库文件是否导入</h3><p>检查Compile Sources中是否有缺少.m文件；<br>检查link binary with libraries中是否缺少依赖库，<br>但是在Xcode7上面好像很少出现这种问题，但是出问题也了不能不查。</p>
+<h3 id="2、确定系统依赖库是否导入"><a href="#2、确定系统依赖库是否导入" class="headerlink" title="2、确定系统依赖库是否导入"></a>2、确定系统依赖库是否导入</h3><p>我们用到的大部分第三方库都需要导入响应的系统依赖库，例如libz.dylib(或者libz.tbd)，当缺少依赖库时也会报错，具体需要哪些系统依赖库要看第三方文档。</p>
+<h3 id="3、检查导入库路径是否正确"><a href="#3、检查导入库路径是否正确" class="headerlink" title="3、检查导入库路径是否正确"></a>3、检查导入库路径是否正确</h3><p>检查所导入库文件路径的下文件是否存在，并检查targets–&gt;building setting下search paths下相应路径是否正确。<br><img src="http://img.blog.csdn.net/20160603164025715" alt="这里写图片描述"></p>
+<h3 id="4、设置Other-Linker-Flags"><a href="#4、设置Other-Linker-Flags" class="headerlink" title="4、设置Other Linker Flags"></a>4、设置Other Linker Flags</h3><p>很多第三方库直接导入xcode，编译的时候都不能正确识别，需要在build settings 中设置 Other Linker Flags：</p>
+<h6 id="a、添加值-inherited"><a href="#a、添加值-inherited" class="headerlink" title="a、添加值$(inherited)"></a>a、添加值$(inherited)</h6><h6 id="b、添加值-ObjC"><a href="#b、添加值-ObjC" class="headerlink" title="b、添加值-ObjC"></a>b、添加值-ObjC</h6><h6 id="c、添加值-force-load-path-to-yourSdk"><a href="#c、添加值-force-load-path-to-yourSdk" class="headerlink" title="c、添加值-force_load  path/to/yourSdk"></a>c、添加值-force_load  path/to/yourSdk</h6><h3 id="5、设置Link-With-Standerd-Libraries"><a href="#5、设置Link-With-Standerd-Libraries" class="headerlink" title="5、设置Link With Standerd Libraries"></a>5、设置Link With Standerd Libraries</h3><p>有时候工程中需要用到混编，如果Link With Standerd Libraries的值不小心设置成NO的话很可能许多函数找不到，报Undefined symbols for architecture arm64错误，将其值设置成YES就可以了。</p>
+<h3 id="6、DerivedData"><a href="#6、DerivedData" class="headerlink" title="6、DerivedData"></a>6、DerivedData</h3><p>设置完以上步骤，clean 一下工程 重新编译，如果还出错，关闭xcode，打开finder ，使用快捷键command +shift +g 搜索目录~/Library/Developer/Xcode/DerivedData/   找到你的app对应的文件夹，删除这个文件夹，重新打开xcode运行，应该就OK了。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-七牛上传AppStore的时候报 ERROR ITMS-90362" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
