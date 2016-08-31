@@ -630,6 +630,13 @@ a {
 #header .header-nav .social a.github:hover {
   border: 1px solid #909ab6;
 }
+#header .header-nav .social a.csdn {
+  background: url("/img/csdn.png") center no-repeat #e70500;
+  border: 1px solid #e70500;
+}
+#header .header-nav .social a.csdn:hover {
+  border: 1px solid #e70500;
+}
 #header .header-nav .social a.facebook {
   background: url("/img/facebook.png") center no-repeat #3b5998;
   border: 1px solid #3b5998;
