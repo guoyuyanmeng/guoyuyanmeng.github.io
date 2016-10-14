@@ -77,7 +77,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -208,11 +208,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-safari调试iPhone-app网页" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Xcode-8-打包上传问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/09/safari调试iPhone-app网页/" class="article-date">
-  	<time datetime="2016-09-09T01:36:29.000Z" itemprop="datePublished">2016-09-09</time>
+      <a href="/2016/10/14/Xcode-8-打包上传问题/" class="article-date">
+  	<time datetime="2016-10-14T02:32:59.000Z" itemprop="datePublished">2016-10-14</time>
 </a>
     </div>
   
@@ -225,7 +225,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/09/safari调试iPhone-app网页/">safari调试iPhone app网页</a>
+      <a class="article-title" href="/2016/10/14/Xcode-8-打包上传问题/">Xcode 8 打包上传问题</a>
     </h1>
   
 
@@ -234,15 +234,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>date: 2016-09-09 09:36:29</p>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><strong>当下移动端开发过程中大量使用前段H5、js等等技术，而这些web页面的调试在Xcode控制台中不太明了，经常我们移动app运行了就是方法，但是不能显示响应的效果，这时候或许就是已经报错了，但是我们在Xcode控制台是看不到这些错误。这时候我们就可以用功能强大的Safari浏览器来开启开发模式连接iPhone来调试app脸面的web页面了。</strong></p>
-<h3 id="Safari设置"><a href="#Safari设置" class="headerlink" title="Safari设置"></a>Safari设置</h3><p><strong>打开Safari偏好者设置，选中“高级菜单”，在页面最下方看到“在菜单中显示开发菜单”的复选框，在复选框内打钩，这样设置完毕就能在Safari菜单中看到开发菜单了</strong></p>
-<p><img src="images/Safari设置.png" alt="Safari设置 icon"></p>
-<h3 id="iPhone设置"><a href="#iPhone设置" class="headerlink" title="iPhone设置"></a>iPhone设置</h3><p><strong>打开iPhone手机设置app 选择Safari，找到高级选项，有JavaScript开关web检查器开关，讲两个开关都打开</strong><br><img src="images/iPhone设置.png" alt="iPhone设置 icon"></p>
-<h3 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h3><p><strong>到此，准备工作完成。这时候讲iPhone链接到mac上，打开Safari浏览器，运行手机app里面的web页面，在开发菜单中选择连接的手机，找到调试的网页，就能在Safari里面调试了</strong><br><img src="images/开启调试.png" alt="开启调试 icon"></p>
-<p> <strong>手机截屏</strong><br> <img src="images/手机截屏.PNG" alt="手机截屏 icon"></p>
-<p> <strong>Safari调试窗口</strong><br> <img src="images/调试窗口.png" alt="调试窗口 icon"></p>
-<h3 id="Safari控制台"><a href="#Safari控制台" class="headerlink" title="Safari控制台"></a>Safari控制台</h3><p><strong>在Safari中鼠标右键，选择检查元素，就可以看见Safari控制台了。如果看不到检查元素选项，依照上面Safari设置打开开发选项</strong></p>
+        <h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p>最近好多人升级Xcode8.0以后打包上传的时候都遇到了报错信息，在这里记录下我自己遇到的错误信息和解决方案。</p>
+<h2 id="bug-info"><a href="#bug-info" class="headerlink" title="bug info"></a>bug info</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vibrator has conflicting provisioning settings. Vibrator is automatically signed, but code signing identity iPhone Distribution:</span><br><span class="line">has been manually specified. Set the code signing identity value to “iPhone Developer” in the build settings editor, or switch to manual. signing in the project editor.</span><br><span class="line">Code signing is required for product type ‘Application’ in SDK ‘iOS 10.0’</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1823587-937f66c9c00deeba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="bugInfo.png"></p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>其实我的解决方案很简单。首先选中工程文件，<br>在General 中 Automatically manage signing关闭（去掉前面小方框中的对勾），<br>然后在重新打开Automatically manage signing（显示小方框中的duigou）<br>这时候Team 现象显示为None，重新选择自己的证书签名就OK了。<br><img src="http://upload-images.jianshu.io/upload_images/1823587-11b11372af467246.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Provisioning PorfileSetting.png"></p>
 
       
     </div>
@@ -297,8 +292,70 @@
       
         <p>date: 2016-10-11 19:56:29</p>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>最近发现一个好玩的问题，我在一个tableView的cell里面写了一个collectionView来加载图片。因为tableViewCell复用的缘故，每次复用cell的时候就会去获取cell对应数据，然后调用collectionView的reloadData方法。滑动tableVIew到固定一行的时候控制台就会输出以下bug 日志，然后程序就会crash.在stackoverflow上面也看到别人有相同的问题，有人提出是collectionView reload数据太频繁了，但是我发现就算是慢慢滑动，到固定某一个cell的时候也会报错，也就是说不是因为reload太频繁的缘故。但是在找不到其他原因的情况下我试着把reloadData方法卸载GCD异步线程里面发现问题真的不再复现了。很奇怪，哪位仁兄知道原因的帮忙解答一下。</p>
-<h3 id="bug日志"><a href="#bug日志" class="headerlink" title="bug日志"></a>bug日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Assertion failure in -[UICollectionViewData validateLayoutInRect:], /BuildRoot/Library/Caches/com.apple.xbs/Sources/UIKit/UIKit-3599.6/UICollectionViewData.m:433**</span><br></pre></td></tr></table></figure>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// [_collectionView reloadData];</span><br><span class="line"></span><br><span class="line">//在主线程中更新屏幕</span><br><span class="line">dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">    [_collectionView reloadData];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="bug日志"><a href="#bug日志" class="headerlink" title="bug日志"></a>bug日志</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Assertion failure in -[UICollectionViewData validateLayoutInRect:], /BuildRoot/Library/Caches/com.apple.xbs/Sources/UIKit/UIKit-3599.6/UICollectionViewData.m:433**</span><br></pre></td></tr></table></figure>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="方案一：这种解方案在iPhone6s上是可以的运行的，但是在iPhone5上面还是会报错"><a href="#方案一：这种解方案在iPhone6s上是可以的运行的，但是在iPhone5上面还是会报错" class="headerlink" title="方案一：这种解方案在iPhone6s上是可以的运行的，但是在iPhone5上面还是会报错"></a>方案一：这种解方案在iPhone6s上是可以的运行的，但是在iPhone5上面还是会报错</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// [_collectionView reloadData];</span><br><span class="line"></span><br><span class="line">//在主线程中更新屏幕</span><br><span class="line">dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">    [_collectionView reloadData];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="方案二：以下解决方案在iPhone5上也可以运行，不会报错"><a href="#方案二：以下解决方案在iPhone5上也可以运行，不会报错" class="headerlink" title="方案二：以下解决方案在iPhone5上也可以运行，不会报错"></a>方案二：以下解决方案在iPhone5上也可以运行，不会报错</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// [_collectionView reloadData];</span><br><span class="line"></span><br><span class="line">dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^&#123;</span><br><span class="line">[_collectionView reloadData];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-safari调试iPhone-app网页" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/09/safari调试iPhone-app网页/" class="article-date">
+  	<time datetime="2016-09-09T01:36:29.000Z" itemprop="datePublished">2016-09-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/09/safari调试iPhone-app网页/">safari调试iPhone app网页</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>date: 2016-09-09 09:36:29</p>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><strong>当下移动端开发过程中大量使用前段H5、js等等技术，而这些web页面的调试在Xcode控制台中不太明了，经常我们移动app运行了就是方法，但是不能显示响应的效果，这时候或许就是已经报错了，但是我们在Xcode控制台是看不到这些错误。这时候我们就可以用功能强大的Safari浏览器来开启开发模式连接iPhone来调试app脸面的web页面了。</strong></p>
+<h3 id="Safari设置"><a href="#Safari设置" class="headerlink" title="Safari设置"></a>Safari设置</h3><p><strong>打开Safari偏好者设置，选中“高级菜单”，在页面最下方看到“在菜单中显示开发菜单”的复选框，在复选框内打钩，这样设置完毕就能在Safari菜单中看到开发菜单了</strong></p>
+<p><img src="images/Safari设置.png" alt="Safari设置 icon"></p>
+<h3 id="iPhone设置"><a href="#iPhone设置" class="headerlink" title="iPhone设置"></a>iPhone设置</h3><p><strong>打开iPhone手机设置app 选择Safari，找到高级选项，有JavaScript开关web检查器开关，讲两个开关都打开</strong><br><img src="images/iPhone设置.png" alt="iPhone设置 icon"></p>
+<h3 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h3><p><strong>到此，准备工作完成。这时候讲iPhone链接到mac上，打开Safari浏览器，运行手机app里面的web页面，在开发菜单中选择连接的手机，找到调试的网页，就能在Safari里面调试了</strong><br><img src="images/开启调试.png" alt="开启调试 icon"></p>
+<p> <strong>手机截屏</strong><br> <img src="images/手机截屏.PNG" alt="手机截屏 icon"></p>
+<p> <strong>Safari调试窗口</strong><br> <img src="images/调试窗口.png" alt="调试窗口 icon"></p>
+<h3 id="Safari控制台"><a href="#Safari控制台" class="headerlink" title="Safari控制台"></a>Safari控制台</h3><p><strong>在Safari中鼠标右键，选择检查元素，就可以看见Safari控制台了。如果看不到检查元素选项，依照上面Safari设置打开开发选项</strong></p>
 
       
     </div>
