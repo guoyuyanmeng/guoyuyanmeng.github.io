@@ -77,7 +77,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -203,6 +203,60 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-收藏网址" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/17/收藏网址/" class="article-date">
+  	<time datetime="2016-10-17T06:43:50.000Z" itemprop="datePublished">2016-10-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/17/收藏网址/">收藏网址</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="override"><a href="#override" class="headerlink" title="override"></a>override</h2><h2 id="objective-c"><a href="#objective-c" class="headerlink" title="objective-c"></a>objective-c</h2><h2 id="swift"><a href="#swift" class="headerlink" title="swift"></a>swift</h2><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p><a href="https://github.com/raywenderlich/swift-algorithm-club" target="_blank" rel="external">swift算法</a></p>
+<p><a href="http://student.zjzk.cn/course_ware/data_structure/web/paixu/paixu8.3.2.2.htm" target="_blank" rel="external">数据结构</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Xcode-8-打包上传问题" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -531,7 +585,7 @@
         <p>date: 2016-06-14 11:23:07</p>
 <p>cocoapods是和方便的第三方库托管插件，使用cocoapods可以让我们节省很多枯燥的工作，但是在git中有时候会很烦人，xcode一遍一遍的提示UserInterfaceState.xcuserstate有未提交的change ，这时候就需要用git 中的.gitignore  来处理了。</p>
 <hr>
-<h1 id="pods-安装库"><a href="#pods-安装库" class="headerlink" title="pods 安装库"></a>pods 安装库</h1><p>（如果你的mac还没有安装cocoapods —&gt; <a href="http://blog.csdn.net/guoyuyanmen/article/details/50638754" target="_blank" rel="external">cocoapods安装</a>）<br>打开终端，cd 进入项目文件夹</p>
+<h2 id="pods-安装库"><a href="#pods-安装库" class="headerlink" title="pods 安装库"></a>pods 安装库</h2><p>（如果你的mac还没有安装cocoapods —&gt; <a href="http://blog.csdn.net/guoyuyanmen/article/details/50638754" target="_blank" rel="external">cocoapods安装</a>）<br>打开终端，cd 进入项目文件夹</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//生成Podfile文件</span><br><span class="line">touch  Podfile </span><br><span class="line"></span><br><span class="line">//打开Podfile文件，编辑支持版本和需要引入的三方库</span><br><span class="line">vim Podfile</span><br></pre></td></tr></table></figure>
 <p>例如下图<br><img src="http://img.blog.csdn.net/20160603174144240" alt="这里写图片描述"></p>
 <p>编辑完Podfile文件，执行安装库命令</p>
@@ -541,7 +595,7 @@
 <p>这时候打开finder可以看到在工程下面多几个文件<br>yourProject.xcworkspace<br>Podfile<br>Podfile.lock<br>Pods文件夹</p>
 <p>这些文件都是什么呢?Podfile不用说，就是上面我们手动生成的pods配置文件，下面我们说说其他几个文件</p>
 <hr>
-<h1 id="Podfile-lock"><a href="#Podfile-lock" class="headerlink" title="Podfile.lock"></a>Podfile.lock</h1><blockquote>
+<h2 id="Podfile-lock"><a href="#Podfile-lock" class="headerlink" title="Podfile.lock"></a>Podfile.lock</h2><blockquote>
 <p>This file is generated after the first run of pod install, and tracks<br>the version of each Pod that was installed.</p>
 </blockquote>
 <p>说白了就是首次执行 pod install的时候回自动生成Podfile.lock文件，并且能够追踪当前安装pods库的版本信息。如果你的工程导入到另外一台机器上，执行pod install 命令，即便当前某一个pods新的可用版本，pods库也不会跟新版本，还是会安装和原来的机器一样的版本号，这个就能够保证多人开发的时候保持依赖库一致，因此，Podfile.lock文件在git版本管理中不能被忽略。</p>
@@ -549,13 +603,13 @@
 <p>This file should always be kept under version control.</p>
 </blockquote>
 <hr>
-<h1 id="pod文件夹"><a href="#pod文件夹" class="headerlink" title="pod文件夹"></a>pod文件夹</h1><p>pod文件夹存放依赖库，并且记录pods依赖库当前安装的信息和一些配置。cocoapods官方推荐对pods文件夹做版本控制，但是也没有强烈推荐，还是看个人选择，各有优点吧。如果做版本控制，git clone 完代码也不用重新安装pods依赖库，直接可以编译运行，节省时间，同时计时依赖库在资源网站上下架也可以继续使用；如果不做版本控制，可以节省空间，节省代码同步的时间，可以减少合并分支的冲突。</p>
+<h2 id="pod文件夹"><a href="#pod文件夹" class="headerlink" title="pod文件夹"></a>pod文件夹</h2><p>pod文件夹存放依赖库，并且记录pods依赖库当前安装的信息和一些配置。cocoapods官方推荐对pods文件夹做版本控制，但是也没有强烈推荐，还是看个人选择，各有优点吧。如果做版本控制，git clone 完代码也不用重新安装pods依赖库，直接可以编译运行，节省时间，同时计时依赖库在资源网站上下架也可以继续使用；如果不做版本控制，可以节省空间，节省代码同步的时间，可以减少合并分支的冲突。</p>
 <blockquote>
 <p>Whether or not you check in the Pods directory, the Podfile and<br>Podfile.lock should always be kept under version control.</p>
 </blockquote>
 <p>不论pods文件夹做不做版本控制，对于podfile和podfile.lock你都应该做版本控制</p>
 <hr>
-<h1 id="yourProject-xcworkspace"><a href="#yourProject-xcworkspace" class="headerlink" title="yourProject.xcworkspace"></a>yourProject.xcworkspace</h1><p>yourProject.xcworkspace文件是pods管理的xcode项目的程序入口，这个文件里面有一个文件UserInterfaceState.xcuserstate，总是提示有未提交的change ，很讨厌，所以我们把UserInterfaceState.xcuserstate放到.gitignore中，也就是不做版本控制。<br>首先添加UserInterfaceState.xcuserstate的路径到.gitignorewen中<br>然后先清除缓存，提交</p>
+<h2 id="yourProject-xcworkspace"><a href="#yourProject-xcworkspace" class="headerlink" title="yourProject.xcworkspace"></a>yourProject.xcworkspace</h2><p>yourProject.xcworkspace文件是pods管理的xcode项目的程序入口，这个文件里面有一个文件UserInterfaceState.xcuserstate，总是提示有未提交的change ，很讨厌，所以我们把UserInterfaceState.xcuserstate放到.gitignore中，也就是不做版本控制。<br>首先添加UserInterfaceState.xcuserstate的路径到.gitignorewen中<br>然后先清除缓存，提交</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cached yourProject.xcworkspace/xcuserdata/username.xcuserdatad/UserInterfaceState.xcuserstate</span><br><span class="line"></span><br><span class="line">$ git add .</span><br><span class="line"></span><br><span class="line">git commit -m &quot;fixed untracked files&quot;</span><br></pre></td></tr></table></figure>
 
       
